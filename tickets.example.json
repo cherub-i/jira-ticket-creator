@@ -1,0 +1,25 @@
+{
+    "placeholders": "<SPRINT_NO>, <SPRINT_ID>",
+    "tickets": [
+        {
+            "Gruppe": "sprint-ohne-release, sprint-mit-release",
+            "Summary": "Sprint <SPRINT_NO> - Business Analyse",
+            "Issue Type": "Task",
+            "Priority": "Minor",
+            "Description": "*Bold Text* \n\n* List item\n* List item*",
+            "Epic Link": "JIRA-123",
+            "Story Points": 5,
+            "Sprint": "<SPRINT_ID>"
+        },
+        {
+            "Gruppe": "sprint-ohne-release, sprint-mit-release",
+            "Summary": "Sprint <SPRINT_NO> - Release",
+            "Issue Type": "Task",
+            "Priority": "Major",
+            "Description": "*Bold Text* \n\n* List item\n* List item*",
+            "Epic Link": "JIRA-1",
+            "Story Points": 1,
+            "Sprint": "<SPRINT_ID>"
+        }
+    ]
+}
