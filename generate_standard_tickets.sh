@@ -67,10 +67,10 @@ case "$#" in
     usage_and_exit "Missing mandatory attributes: TICKET_FILE.json"
     ;;
 2)
-    gruppe=""
+    GRUPPE=""
     ;;
 3)  
-    gruppe=$3
+    GRUPPE=$3
     ;;
 esac
 # IMPROVE: detect invalid project
@@ -117,7 +117,7 @@ echo "Do you want to create these issues:"
 echo "  project: ${TARGET_PROJECT}"
 echo "  sprint:  ${SPRINT_NAME}"
 echo "  issues: "
-for TICKET in $(jq -r ".tickets | .[] | select(.Gruppe | contains(\"${gruppe}\")) | @base64" "$TICKETS_FILE"); do
+for TICKET in $(jq -r ".tickets | .[] | select(.Gruppe | contains(\"${GRUPPE}\")) | @base64" "$TICKETS_FILE"); do
     TICKET_JSON=$(echo "$TICKET" | base64 -di)
     TICKET_JSON=$(sed -e "s/<SPRINT_NO>/${SPRINT_NO}/g" <<< $TICKET_JSON)
     TICKET_JSON=$(sed -e "s/\"\$SPRINT_ID\"/${SPRINT_ID}/g" <<< $TICKET_JSON)
@@ -142,7 +142,7 @@ echo
 
 
 # create tickets
-for ticket in $(jq -r ".tickets | .[] | select(.Gruppe | contains(\"${gruppe}\")) | @base64" "$TICKETS_FILE"); do
+for TICKET in $(jq -r ".tickets | .[] | select(.Gruppe | contains(\"${GRUPPE}\")) | @base64" "$TICKETS_FILE"); do
     TICKET_JSON=$(echo "$TICKET" | base64 -di)
     TICKET_JSON=$(sed -e "s/<SPRINT_NO>/${SPRINT_NO}/g" <<< $TICKET_JSON)
     TICKET_JSON=$(sed -e "s/\"<SPRINT_ID>\"/${SPRINT_ID}/g" <<< $TICKET_JSON)
@@ -170,7 +170,6 @@ for ticket in $(jq -r ".tickets | .[] | select(.Gruppe | contains(\"${gruppe}\")
         -H "Content-Type: application/json; charset=utf-8" \
         --data @"$TICKET_JSON_TMP_FILE" \
         ${JIRA_BASE_URL}/rest/api/2/issue/)
-    # IMPROVE: show result if it contains the word "error"
     # echo $RESULT
     rm "$TICKET_JSON_TMP_FILE"
 
