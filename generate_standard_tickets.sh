@@ -104,7 +104,7 @@ echo
 RE_NUMERIC='^[0-9]+$'
 # IMPROVE: detect invalid sprint
 while [[ ! $SPRINT_NO =~ $RE_NUMERIC ]] ; do
-    read -p "In which sprint should the tickets be created (enter sprint number)? " SPRINT_NO
+    read -p "In which sprint should the issues be created (enter sprint number)? " SPRINT_NO
 done
 SPRINT_ID=$(echo "$SPRINTS_JSON" | jq -r ".values | .[] | select(.name | contains(\"${SPRINT_NO}\") ) | .id")
 SPRINT_NAME=$(echo "$SPRINTS_JSON" | jq -r ".values | .[] | select(.name | contains(\"${SPRINT_NO}\") ) | .name")
