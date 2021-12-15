@@ -19,12 +19,14 @@ path.
 
 You can configure the JIRA URL, board numner and credentials in the
 script itself, but I would advise you to create a script `config.sh` in
-the same folder as the script an configure the variables there (the
+the same folder as the script and configure the variables there (the
 script already supports this - just use the same variable names as in
 the script).  
 This will make it easier to use the script with different configs and to
-pull updated for the script.
+pull updates for the script.
 
 ## Usage
 The script itself will print out usage information if you start it
-without the right set of parameters, please refer to that.
+without the right set of parameters, please refer to that. Take a look
+at [```tickets.example.json```](./tickets.example.json) to find out how
+to formulate the JSON with the ticktes you want to create.
