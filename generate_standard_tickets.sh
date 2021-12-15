@@ -157,6 +157,7 @@ for TICKET in $(jq -r ".tickets | .[] | select(.Gruppe | contains(\"${GRUPPE}\")
         priority: {name: .\"Priority\"},
         summary: .Summary,
         description: .Description,
+        labels: .Labels,
         customfield_10006: .\"Epic Link\",
         customfield_10002: .\"Story Points\",
         customfield_10005: .Sprint

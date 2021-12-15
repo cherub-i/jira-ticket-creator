@@ -7,6 +7,7 @@
             "Issue Type": "Task",
             "Priority": "Minor",
             "Description": "*Bold Text* \n\n* List item\n* List item*",
+            "Labels": [ "label1", "label2" ],
             "Epic Link": "JIRA-123",
             "Story Points": 5,
             "Sprint": "<SPRINT_ID>"
