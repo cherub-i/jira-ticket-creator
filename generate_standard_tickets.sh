@@ -74,7 +74,7 @@ case "$#" in
     ;;
 esac
 # IMPROVE: detect invalid project
-TARGET_PROJECT=$1
+TARGET_PROJECT=${1^^}
 TICKETS_FILE="$2"
 
 # start
