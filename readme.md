@@ -1,6 +1,7 @@
 # jira-ticket-creator
 
 ## What it does
+
 jira-ticket-creator is a shell-script, which will query JIRA for the
 available sprints, let you choose one of those sprints and then will
 create tickets ("issues" in JIRA lingo) in that sprint which are
@@ -13,6 +14,7 @@ task of creating the same set of tickets over and over again for each
 sprint.
 
 ## Installation
+
 Apart from the script itself, you need to have
 [jq](https://stedolan.github.io/jq/) and available in your standard
 path.
@@ -26,6 +28,7 @@ This will make it easier to use the script with different configs and to
 pull updates for the script.
 
 ## Usage
+
 The script itself will print out usage information if you start it
 without the right set of parameters, please refer to that. Take a look
 at [```tickets.example.json```](./tickets.example.json) to find out how

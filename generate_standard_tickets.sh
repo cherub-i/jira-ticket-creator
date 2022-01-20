@@ -30,7 +30,7 @@ error_and_exit() {
 check_dependencies() {
     which $1 >> /dev/null
     if [ $? != 0 ]; then
-        error_and_exit "Missing dependency \n$1 ($2) \nThe Dependency muss be available from the path."
+        error_and_exit "Missing dependency \n$1 ($2) \nThe Dependency must be available from the path."
     fi
 }
 
@@ -41,10 +41,11 @@ check_dependencies jq https://stedolan.github.io/jq/
 # general
 TICKET_JSON_TMP_FILE="ticket_json.tmp"
 
-
 CONFIG_FILE="config.sh"
 if [ -f "$CONFIG_FILE" ]; then
     . "$CONFIG_FILE"
+elif [ -f "$(cd -P -- "$(dirname -- "$0")" && pwd -P)/$CONFIG_FILE" ]; then
+    . "$(cd -P -- "$(dirname -- "$0")" && pwd -P)/$CONFIG_FILE"
 fi
 
 # JIRA server
